@@ -15,6 +15,7 @@ class GameBoard
   end 
 
   def run_game
+
   end 
 
 
@@ -23,7 +24,7 @@ class GameBoard
 
 end 
 
-
+def cases
 
 # hash for 
 # |---
@@ -62,5 +63,5 @@ end
 # |/ \
 # |___
 
-
+end 
 
