@@ -2,12 +2,11 @@ class GameBoard
 
   attr_accessor
 
-  def initialize(player, blank_word)
+  def initialize(player, blank_word, alphabet)
     @player = player
     @player_name = player.name
     @word = blank_word
-    @alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
-      "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    @alphabet = alphabet
     show_board
   end 
 
@@ -24,10 +23,10 @@ class GameBoard
     puts @word.to_s
     puts 
     puts "Guess a letter!"  
-    puts @alphabet.to_s
-    
+    puts "Possible letters are #{logic.alphabet}"
   end  
   
+
 
   # def show_word
   # end 

@@ -1,6 +1,11 @@
 class Logic
 
-  
+  attr_accessor :alphabet
+
+  def initialize
+    @alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
+  "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  end 
 
   def start
     puts "type start to begin the game"
@@ -13,8 +18,8 @@ class Logic
   def setup
     get_name
     create_player
+    create_board
     generate_word
-    @board = GameBoard.new(@player, @array_blank_word)
     play
   end
 
@@ -26,6 +31,11 @@ class Logic
   def create_player
     @player = Player.new(@name)
   end 
+
+  def create_board
+    @board = GameBoard.new(@player, @array_blank_word, @alphabet)
+  end
+
 
   def generate_word
     # picks random word for play
@@ -49,6 +59,7 @@ class Logic
 
   def get_letter
     @picked_letter = gets.chomp.downcase
+    @alphabet.delete(@picked_letter)
     picked_letter_valid?
   end 
 
