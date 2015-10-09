@@ -6,9 +6,4 @@ def initialize(name)
   @lives = 5
 end 
 
-def decrement_lives
-  self.lives -= 1
-  self.lives
-end 
-
 end 

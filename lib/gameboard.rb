@@ -1,11 +1,10 @@
 class GameBoard
 
-  attr_accessor :lives
+  attr_accessor
 
   def initialize(player, blank_word)
     @player = player
     @player_name = player.name
-    @lives = player.lives
     @word = blank_word
     @alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
       "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -20,7 +19,7 @@ class GameBoard
     puts
     puts " welcome  #{@player_name} "
     puts " ******************** "
-    puts " You have #{lives} lives "
+    puts " You have #{@player.lives} lives "
     puts
     puts @word.to_s
     puts 
@@ -35,7 +34,7 @@ class GameBoard
 
   def show_board
     
-    if @lives == 5
+    if @player.lives == 5
     #system("clear")
     board
     # show_word
@@ -49,7 +48,7 @@ class GameBoard
         "
 
 
-    elsif @lives == 4
+    elsif @player.lives == 4
      #system("clear")
      board
      # show_word
@@ -66,7 +65,7 @@ class GameBoard
 
 
         "
-    elsif @lives == 3
+    elsif @player.lives == 3
     #system("clear")
     board
     # show_word
@@ -84,7 +83,7 @@ class GameBoard
 
 
          "
-    elsif @lives == 2
+    elsif @player.lives == 2
       #system("clear")
       board
       # show_word
@@ -102,7 +101,7 @@ class GameBoard
 
          "
 
-    elsif @lives == 1
+    elsif @player.lives == 1
       #system("clear")
       board
       # show_word
@@ -119,7 +118,7 @@ class GameBoard
 
 
          "
-    elsif  @lives == 0 
+    elsif  @player.lives == 0 
       #system("clear")
       board
       # show_word      
@@ -131,12 +130,9 @@ class GameBoard
          # |______
 
 
-
-
-
-
-
          "
+       puts
+       puts "GAME OVER"
     end
   end 
 end 

@@ -1,8 +1,6 @@
 class Logic
 
-  # def call
-
-  # end 
+  
 
   def start
     puts "type start to begin the game"
@@ -27,7 +25,6 @@ class Logic
 
   def create_player
     @player = Player.new(@name)
-    @lives = @player.lives 
   end 
 
   def generate_word
@@ -43,11 +40,11 @@ class Logic
   end 
 
   def play
-    if @lives > 0
+    if @player.lives > 0 
       get_letter
     else 
-      exit
-    end 
+      false
+    end
   end 
 
   def get_letter
@@ -63,9 +60,9 @@ class Logic
       letter_inserter
     else 
       puts "Wrong! Lose life."
-      @player.decrement_lives
+      decrement_lives
     end 
-    @board.show_board
+    @board.show_board # with updated word array, letter options, lives & hangman
     play
   end 
 
@@ -79,10 +76,10 @@ class Logic
   end 
 
 
-  # def decrement_lives
-  #  @lives -= 1
-  #  # system("clear")
-  # end 
+  def decrement_lives
+   @player.lives -= 1
+   # system("clear")
+  end 
 
 
 end 
