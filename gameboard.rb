@@ -1,13 +1,16 @@
 class GameBoard
 
-  def initialize
-    
-    @lives = 4
-    show_bord
-   
+  attr_accessor :lives
+
+
+  def initialize(lives = 5)
+    @lives = lives
+    @alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
+      "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    show_board
   end 
 
-  def bord 
+  def board 
     puts
     puts
     puts
@@ -20,18 +23,18 @@ class GameBoard
 
     puts 
     puts "pick one letter from the alphabet letter"  
-    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
-      "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    puts alphabet.to_s
+    puts @alphabet.to_s
+    puts
+    puts "You have #{lives} lives"
     
   end  
   
-  def decremente_case
+  def decremente_lives
      @lives -= 1
      system("clear")
   end 
 
-  def welcome_bord
+  def welcome_board
 
 
 
@@ -45,11 +48,11 @@ class GameBoard
 
   end 
 
-  def show_bord
+  def show_board
     
-    if @lives == 5
+    if lives == 5
     system("clear")
-    bord
+    board
     show_word
     puts "
         #  
@@ -65,9 +68,9 @@ class GameBoard
 
 
         "
-    elsif @lives == 4
+    elsif lives == 4
      system("clear")
-     bord
+     board
      show_word
      puts "
         # |------
@@ -82,9 +85,9 @@ class GameBoard
 
 
         "
-    elsif @lives == 3
+    elsif lives == 3
     system("clear")
-    bord
+    board
     show_word
     puts "
         # |-----
@@ -100,9 +103,9 @@ class GameBoard
 
 
          "
-    elsif @lives == 2
+    elsif lives == 2
       system("clear")
-      bord
+      board
       show_word
       puts "
         # |------
@@ -118,9 +121,9 @@ class GameBoard
 
          "
 
-    elsif @lives == 1
+    elsif lives == 1
       system("clear")
-      bord
+      board
       show_word
       puts "
          # |------
@@ -135,9 +138,9 @@ class GameBoard
 
 
          "
-    elsif  @lives == 0 
+    elsif  lives == 0 
       system("clear")
-      bord
+      board
       show_word      
       puts "
          # |------
