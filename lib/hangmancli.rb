@@ -6,19 +6,14 @@ class HangmanCLI
     @on = true
   end 
 
-  def on?
-    @on
-  end 
 
-  # def call
-  #   while on?
-      
-  #   end 
+  # def on?
+  #   @on
   # end 
 
-  def exit
-    @on = false
-  end 
+  # def exit
+  #   @on = false
+  # end 
 
   # def request_input
   #   puts "Enter an available letter!"

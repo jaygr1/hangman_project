@@ -1,25 +1,26 @@
 class Logic
 
-  attr_accessor :alphabet
+  attr_accessor :avail_letters
 
   def initialize
-    @alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
+    @avail_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
   "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
   end 
 
   def start
-    puts "type start to begin the game"
-    @start = gets.chomp
-    if @start.downcase == "start"
-      setup
+    until @start == "start"
+      puts "type start to begin the game"
+      @start = gets.chomp
     end 
+    
+  setup 
   end  
 
   def setup
     get_name
     create_player
-    create_board
     generate_word
+    create_board
     play
   end
 
@@ -33,15 +34,15 @@ class Logic
   end 
 
   def create_board
-    @board = GameBoard.new(@player, @array_blank_word, @alphabet)
+    @board = GameBoard.new(@player, @array_blank_word, @avail_letters)
   end
 
 
   def generate_word
     # picks random word for play
-    game_choices = ["Temporary", "Nice", "Silly", "Poison", "Book", "Timothy", "Billy", "Smelly"]
+    game_choices = ["Smelly"]
     num_of_words = game_choices.length - 1
-    @chosen_word = game_choices[rand(num_of_words)].downcase
+    @chosen_word = game_choices[rand(num_of_words)].upcase
 
     @array_chosen_word = @chosen_word.split(//) # turn word into array
  
@@ -52,16 +53,25 @@ class Logic
   def play
     if @player.lives > 0 
       get_letter
+      picked_letter_valid?
     else 
-      false
+      start
     end
   end 
 
   def get_letter
-    @picked_letter = gets.chomp.downcase
-    @alphabet.delete(@picked_letter)
-    picked_letter_valid?
+    @picked_letter = gets.chomp.upcase
+    if ! @avail_letters.include?(@picked_letter)
+      puts "Choose again!"
+      get_letter
+    end
+    @avail_letters.delete(@picked_letter)
+    @board.curr_letters = @avail_letters 
+    #picked_letter_valid?
+    # @alphabet
   end 
+
+
 
   def picked_letter_valid?
     # need to check if picked letter available or already been picked 
@@ -88,7 +98,7 @@ class Logic
 
 
   def decrement_lives
-   @player.lives -= 1
+    @player.lives -= 1
    # system("clear")
   end 
 

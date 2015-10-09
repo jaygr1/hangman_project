@@ -2,4 +2,4 @@
 
 require_relative '../config/environment'
 
-HangmanCLI.new.call
+HangmanCLI.new

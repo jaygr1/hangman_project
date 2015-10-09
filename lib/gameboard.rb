@@ -1,12 +1,13 @@
 class GameBoard
 
-  attr_accessor
+  attr_accessor :curr_letters
 
-  def initialize(player, blank_word, alphabet)
+  def initialize(player, blank_word, curr_letters)
     @player = player
     @player_name = player.name
     @word = blank_word
-    @alphabet = alphabet
+    @curr_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
+  "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     show_board
   end 
 
@@ -23,7 +24,7 @@ class GameBoard
     puts @word.to_s
     puts 
     puts "Guess a letter!"  
-    puts "Possible letters are #{logic.alphabet}"
+    puts "Possible letters are #{curr_letters}"
   end  
   
 
@@ -34,7 +35,7 @@ class GameBoard
   def show_board
     
     if @player.lives == 5
-    #system("clear")
+    system("clear")
     board
     # show_word
     puts " 
@@ -48,7 +49,7 @@ class GameBoard
 
 
     elsif @player.lives == 4
-     #system("clear")
+     system("clear")
      board
      # show_word
      puts "
@@ -65,7 +66,7 @@ class GameBoard
 
         "
     elsif @player.lives == 3
-    #system("clear")
+    system("clear")
     board
     # show_word
     puts "
@@ -83,12 +84,12 @@ class GameBoard
 
          "
     elsif @player.lives == 2
-      #system("clear")
+      system("clear")
       board
       # show_word
       puts "
         # |------
-        # | \O/
+        # |  \O/
         # |                            
         # |
         # |______
@@ -101,13 +102,13 @@ class GameBoard
          "
 
     elsif @player.lives == 1
-      #system("clear")
+      system("clear")
       board
       # show_word
       puts "
          # |------
-         # | \O/
-         # |  |                          
+         # |  \O/
+         # |   |                          
          # |
          # |______
 
@@ -118,14 +119,14 @@ class GameBoard
 
          "
     elsif  @player.lives == 0 
-      #system("clear")
+      system("clear")
       board
       # show_word      
       puts "
          # |------
-         # | \O/
-         # |  |                            
-         # | / \
+         # |  \O/
+         # |   |                            
+         # |  / \
          # |______
 
 
