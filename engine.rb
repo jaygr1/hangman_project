@@ -1,4 +1,7 @@
-require './data'
+#require '../data/game_words.rb'
+require './gameboard'
+require './player.rb'
+
 class Engine
 
   def word_generator
@@ -9,12 +12,9 @@ class Engine
   def letter_checker
     # iterate over generated word for match
     # output true of false
+
      array_letter= word_generator.split(//)
-
-     array_letter.each do |elem|
-       
-
-     end  
+     #test.bord
      
     
   end 
