@@ -40,7 +40,8 @@ class Logic
 
   def generate_word
     # picks random word for play
-    game_choices = ["Smelly"]
+    game_choices = ["Temporary", "Nice", "Silly", "Poison", "Book", "Timothy", "Billy", "Smelly"]
+
     num_of_words = game_choices.length - 1
     @chosen_word = game_choices[rand(num_of_words)].upcase
 

@@ -71,7 +71,7 @@ class GameBoard
     # show_word
     puts "
         # |-----
-        # | O/
+        # |  O/
         # |                            
         # |
         # |_____
@@ -89,8 +89,8 @@ class GameBoard
       # show_word
       puts "
         # |------
-        # |  \O/
-        # |                            
+        # |  \\O/
+        # |                             
         # |
         # |______
 
@@ -107,7 +107,7 @@ class GameBoard
       # show_word
       puts "
          # |------
-         # |  \O/
+         # |  \\O/
          # |   |                          
          # |
          # |______
@@ -124,9 +124,9 @@ class GameBoard
       # show_word      
       puts "
          # |------
-         # |  \O/
+         # |  \\O/
          # |   |                            
-         # |  / \
+         # |  / \\      
          # |______
 
 
